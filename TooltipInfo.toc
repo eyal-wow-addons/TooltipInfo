@@ -1,0 +1,18 @@
+## Interface: 100205
+
+## Title: Tooltip|cff40a5f7Info|r
+## Notes: Enhances the tooltip with essential information and vivid colors.
+## Author: Eyal Alon
+
+Scripts\AFK.lua
+Scripts\Class.lua
+Scripts\Guild.lua
+Scripts\HonorLevel.lua
+Scripts\ID.lua
+Scripts\Level.lua
+Scripts\Macro.lua
+Scripts\MythicScore.lua
+Scripts\Race.lua
+Scripts\RaidIcon.lua
+Scripts\StatusBar.lua
+Scripts\Target.lua
