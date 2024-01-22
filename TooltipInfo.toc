@@ -2,6 +2,7 @@
 
 ## Title: Tooltip|cff40a5f7Info|r
 ## Notes: Enhances the tooltip with essential information and vivid colors.
+## IconTexture: Interface\AddOns\TooltipInfo\Logo
 ## Author: Eyal Alon
 
 Scripts\AFK.lua
