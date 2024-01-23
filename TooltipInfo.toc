@@ -3,7 +3,11 @@
 ## Title: Tooltip|cff40a5f7Info|r
 ## Notes: Enhances the standard tooltip with additional information and visuals.
 ## IconTexture: Interface\AddOns\TooltipInfo\Logo
+## Version: @project-version@
 ## Author: Eyal Alon
+
+## X-Curse-Project-ID: 965680
+## X-Wago-ID: 96doenNO
 
 Scripts\AFK.lua
 Scripts\Class.lua
