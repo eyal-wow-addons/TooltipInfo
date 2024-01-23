@@ -1,5 +1,7 @@
 if not TooltipDataProcessor.AddTooltipPostCall then return end
 
+local ICON_LIST = ICON_LIST
+
 local UnitExists = UnitExists
 local GetRaidTargetIndex = GetRaidTargetIndex
 

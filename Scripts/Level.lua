@@ -1,5 +1,6 @@
 if not TooltipDataProcessor.AddTooltipPostCall then return end
 
+local _G = _G
 local CreateColor = CreateColor
 local GetContentDifficultyCreatureForPlayer = C_PlayerInfo.GetContentDifficultyCreatureForPlayer
 local GetDifficultyColor = GetDifficultyColor
@@ -9,6 +10,8 @@ local UnitLevel = UnitLevel
 
 local LEVEL1_FORMAT = "|cff%%s%%s|r"
 local LEVEL2_FORMAT = "|cff%%s%%s|r (%%s)"
+
+local PLAYER_PATTERN = "%(%w+%)"
 
 TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(tooltip)
 	if tooltip:IsForbidden() then return end
@@ -28,12 +31,15 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(tool
 				local lineText = line:GetText()
 				if lineText and lineText:find(LEVEL) then
 					local levelText = level > 0 and level or "??"
-
+				
 					if level < realLevel then
 						line:SetFormattedText(lineText:gsub(level, LEVEL2_FORMAT), diffHexColor, levelText, realLevel)
 					else
 						line:SetFormattedText(lineText:gsub(level, LEVEL1_FORMAT), diffHexColor, levelText)
 					end
+
+					-- Removes the (Player) bit from the level line.
+					line:SetText(lineText:gsub(PLAYER_PATTERN, ""))
 
 					break
 				end

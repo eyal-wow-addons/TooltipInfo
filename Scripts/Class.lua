@@ -1,5 +1,8 @@
 if not TooltipDataProcessor.AddTooltipPostCall then return end
 
+local _G = _G
+local RAID_CLASS_COLORS = RAID_CLASS_COLORS
+
 local UnitIsPlayer = UnitIsPlayer
 local UnitClass = UnitClass
 

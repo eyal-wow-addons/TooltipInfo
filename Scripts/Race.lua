@@ -1,13 +1,11 @@
 if not TooltipDataProcessor.AddTooltipPostCall then return end
 
+local _G = _G
 local UnitIsPlayer = UnitIsPlayer
 local UnitRace = UnitRace
 local UnitIsFriend = UnitIsFriend
 
 local RACE_FORMAT = "%%s%%s|r"
---local ALLIANCE = "Alliance"
---local HORDE = "Horde"
---local PANDAREN = "Pandaren"
 
 local function GetUnitReactionColor(unit)
     if UnitIsFriend(unit, "player") then
@@ -16,27 +14,6 @@ local function GetUnitReactionColor(unit)
         return "|cffff0000"
     end
 end
-
---[[local function GetUnitBattlefieldFaction(unit)
-	local englishFaction, localizedFaction = UnitFactionGroup(unit)
-
-	-- This might be a rated BG or wargame and if so the player's faction might be altered
-	-- should also apply if `player` is a mercenary.
-	if unit == "player" then
-		if C_PvP.IsRatedBattleground() or IsWargame() then
-			englishFaction = PLAYER_FACTION_GROUP[GetBattlefieldArenaFaction()]
-			localizedFaction = (englishFaction == ALLIANCE and FACTION_ALLIANCE) or FACTION_HORDE
-		elseif UnitIsMercenary(unit) then
-			if englishFaction == ALLIANCE then
-				englishFaction, localizedFaction = HORDE, FACTION_HORDE
-			else
-				englishFaction, localizedFaction = ALLIANCE, FACTION_ALLIANCE
-			end
-		end
-	end
-
-	return englishFaction, localizedFaction
-end]]
 
 TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(tooltip)
     if tooltip:IsForbidden() then return end
@@ -47,10 +24,6 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(tool
 
     if unit and UnitIsPlayer(unit) then
         local race = UnitRace(unit)
-        --[[local _, localizedFaction = GetUnitBattlefieldFaction(unit)
-        if localizedFaction and englishRace == PANDAREN then 
-            race = localizedFaction .. " " .. race
-        end]]
         if race then
             for i = 2, numLines do
                 local line = _G["GameTooltipTextLeft" .. i]

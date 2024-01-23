@@ -1,5 +1,10 @@
 if not TooltipDataProcessor.AddTooltipPostCall then return end
 
+local UnitHealth = UnitHealth
+local UnitHealthMax = UnitHealthMax
+local TextStatusBar_UpdateTextStringWithValues = TextStatusBar_UpdateTextStringWithValues
+local TextStatusBar_UpdateTextString = TextStatusBar_UpdateTextString
+
 do
     local text = GameTooltipStatusBar:CreateFontString(nil, "OVERLAY", "TextStatusBarText")
     text:SetPoint("CENTER")

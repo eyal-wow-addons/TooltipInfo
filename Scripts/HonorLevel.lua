@@ -25,7 +25,7 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(tool
 				if line then
 					local lineText = line:GetText()
 					if lineText and lineText:find(localizedFaction) then
-						line:SetText('')
+						line:SetText("")
 						line:Hide()
 						tooltip:AddDoubleLine(HONOR_LEVEL_LABEL, honorLevel, nil, nil, nil, 1, 1, 1)
 						break

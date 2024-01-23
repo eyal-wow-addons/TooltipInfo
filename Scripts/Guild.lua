@@ -1,5 +1,6 @@
 if not TooltipDataProcessor.AddTooltipPostCall then return end
 
+local _G = _G
 local UnitIsPlayer = UnitIsPlayer
 local GetGuildInfo = GetGuildInfo
 

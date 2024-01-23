@@ -1,13 +1,16 @@
 if not TooltipDataProcessor.AddTooltipPostCall then return end
 
+local _G = _G
+local TARGET = TARGET
+local FACTION_BAR_COLORS = FACTION_BAR_COLORS
+local RAID_CLASS_COLORS = RAID_CLASS_COLORS
+
 local UnitIsUnit = UnitIsUnit
 local UnitIsPlayer = UnitIsPlayer
 local UnitClass = UnitClass
 local UnitReaction = UnitReaction
 local UnitName = UnitName
 local UnitExists = UnitExists
-
-local TARGET = TARGET
 
 local THE_TARGET_FORMAT = "|cfffed100" .. TARGET .. ":|r %s"
 local PLAYER_FORMAT = "|cffffffff<You>|r"
