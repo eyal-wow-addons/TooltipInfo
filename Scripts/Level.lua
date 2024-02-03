@@ -8,10 +8,10 @@ local UnitIsPlayer = UnitIsPlayer
 local UnitEffectiveLevel = UnitEffectiveLevel
 local UnitLevel = UnitLevel
 
-local LEVEL1_FORMAT = "|cff%%s%%s|r"
-local LEVEL2_FORMAT = "|cff%%s%%s|r (%%s)"
+local LEVEL1_FORMAT = "|cff%%s%%d|r"
+local LEVEL2_FORMAT = "|cff%%s%%d|r (%%d)"
 
-local PLAYER_PATTERN = "%(%w+%)"
+local PLAYER_PATTERN = "%(" .. PLAYER .. "%)"
 
 TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(tooltip)
 	if tooltip:IsForbidden() then return end
@@ -31,7 +31,7 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(tool
 				local lineText = line:GetText()
 				if lineText and lineText:find(LEVEL) then
 					local levelText = level > 0 and level or "??"
-				
+
 					if level < realLevel then
 						line:SetFormattedText(lineText:gsub(level, LEVEL2_FORMAT), diffHexColor, levelText, realLevel)
 					else
@@ -39,6 +39,7 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(tool
 					end
 
 					-- Removes the (Player) bit from the level line.
+					lineText = line:GetText()
 					line:SetText(lineText:gsub(PLAYER_PATTERN, ""))
 
 					break
