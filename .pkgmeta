@@ -1,0 +1,7 @@
+package-as: TooltipInfo
+
+enable-nolib-creation: no
+
+ignore:
+  - Screenshots/*
+  - README.md
