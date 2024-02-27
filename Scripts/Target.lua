@@ -43,10 +43,9 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(tool
     if tooltip ~= GameTooltip then return end
 
     local _, unit = tooltip:GetUnit()
-    local numLines = tooltip:NumLines()
-
+    
     if unit then
-        -- Displays target of target
+        local numLines = tooltip:NumLines()
         for i = 1, numLines do
             local line = _G["GameTooltipTextLeft" .. i]
             local text = line:GetText()

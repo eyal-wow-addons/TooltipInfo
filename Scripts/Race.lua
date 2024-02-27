@@ -20,19 +20,20 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(tool
     if tooltip ~= GameTooltip then return end
 
     local _, unit = tooltip:GetUnit()
-    local numLines = tooltip:NumLines()
-
+    
     if unit and UnitIsPlayer(unit) then
         local race = UnitRace(unit)
-        if race then
-            for i = 2, numLines do
-                local line = _G["GameTooltipTextLeft" .. i]
-                if line then
-                    local lineText = line:GetText()
-                    if lineText and lineText:find(race) then
-                        line:SetFormattedText(lineText:gsub(race, RACE_FORMAT), GetUnitReactionColor(unit), race)
-                        break
-                    end
+        if not race then
+            return
+        end
+        local numLines = tooltip:NumLines()
+        for i = 2, numLines do
+            local line = _G["GameTooltipTextLeft" .. i]
+            if line then
+                local lineText = line:GetText()
+                if lineText and lineText:find(race) then
+                    line:SetFormattedText(lineText:gsub(race, RACE_FORMAT), GetUnitReactionColor(unit), race)
+                    break
                 end
             end
         end

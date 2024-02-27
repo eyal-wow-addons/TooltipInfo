@@ -18,13 +18,13 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(tool
     if tooltip ~= GameTooltip then return end
 
     local _, unit = tooltip:GetUnit()
-    local numLines = tooltip:NumLines()
-
+    
     if unit and UnitIsPlayer(unit) then
 		local difficulty = GetContentDifficultyCreatureForPlayer(unit)
         local diffColor = GetDifficultyColor(difficulty)
 		local diffHexColor = CreateColor(diffColor.r, diffColor.g, diffColor.b, 1):GenerateHexColorNoAlpha()
 		local level, realLevel = UnitEffectiveLevel(unit), UnitLevel(unit)
+        local numLines = tooltip:NumLines()
         for i = 2, numLines do
 			local line = _G["GameTooltipTextLeft" .. i]
 			if line then
