@@ -14,6 +14,7 @@ Scripts\Class.lua
 Scripts\Guild.lua
 Scripts\HonorLevel.lua
 Scripts\ID.lua
+Scripts\ItemSource.lua
 Scripts\Level.lua
 Scripts\Macro.lua
 Scripts\MythicScore.lua
