@@ -7,14 +7,25 @@ TooltipInfo is a simple and opinionated addon designed to enrich your World of W
 ![Tooltip](Screenshots/Default.png)
 
 - **Guild:** Display the guild name and character rank.
+
 - **Honor Level:** Display the honor level of players.
-- **Character Level:** Display the effective/actual level of characters. 
-  - Can be useful for Timewalking Dungeons.
+
+- **Character Level:** Display the effective/actual level of characters.
+  - Can be useful for Timewalking Dungeons
+
 - **Mythic+:** Display Mythic+ rating and best run of characters.
+
 - **Raid Icon:** Display the icon on the tooltip.
+
 - **Target of Target:** Display the target's target for improved awareness.
+
 - **StatusBar:** Display the health of units on the tooltip's StatusBar.
+
 - **Character Race and Class Colors:** Color-coded for improved visuals.
+
+- **Positioning:** Dynamically adjusts the position of the tooltip based on whether it's a unit or a frame:
+  - **For Units:** it anchors to the right of the unit.
+  - **For Frames:** it anchors to the default position, except in rare cases where the positioning may be adjusted.
 
 ## Additional Features:
 
