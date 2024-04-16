@@ -10,6 +10,8 @@ TooltipInfo is a simple and opinionated addon designed to enrich your World of W
 
 - **Honor Level:** Display the honor level of players.
 
+- **Item Source:** Display the expansion name for items, indicating when they were introduced.
+
 - **Character Level:** Display the effective/actual level of characters.
   - Can be useful for Timewalking Dungeons
 
