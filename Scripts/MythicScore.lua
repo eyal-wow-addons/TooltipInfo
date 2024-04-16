@@ -22,8 +22,10 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(tool
 
             if GetDungeonScoreRarityColor then
                 color = GetDungeonScoreRarityColor(score)
-            else
-                color = WHITE_FONT_COLOR
+            end
+
+            if not color then
+                color = HIGHLIGHT_FONT_COLOR
             end
             
             tooltip:AddDoubleLine(MYTHIC_PLUS_RATING_LABEL, score, nil, nil, nil, color.r, color.g, color.b)
