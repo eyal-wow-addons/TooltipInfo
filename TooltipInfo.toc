@@ -9,7 +9,10 @@
 ## X-Curse-Project-ID: 965680
 ## X-Wago-ID: 96doenNO
 
+## SavedVariables: TooltipInfoDB
+
 Features\AFK.lua
+Features\Anchor.lua
 Features\Class.lua
 Features\Guild.lua
 Features\HonorLevel.lua
@@ -22,4 +25,5 @@ Features\Race.lua
 Features\RaidIcon.lua
 Features\StatusBar.lua
 Features\Target.lua
-Features\Position.lua
+
+Options.lua
