@@ -2,8 +2,7 @@ if not TooltipDataProcessor.AddTooltipPostCall then return end
 
 local UnitHealth = UnitHealth
 local UnitHealthMax = UnitHealthMax
-local TextStatusBar_UpdateTextStringWithValues = TextStatusBar_UpdateTextStringWithValues
-local TextStatusBar_UpdateTextString = TextStatusBar_UpdateTextString
+local TextStatusBar = CreateFromMixins(TextStatusBarMixin)
 
 do
     local text = GameTooltipStatusBar:CreateFontString(nil, "OVERLAY", "TextStatusBarText")
@@ -37,9 +36,9 @@ GameTooltipStatusBar:HookScript("OnValueChanged", function(self, value)
             self.TextString:Hide()
         elseif unit then
             value, max = UnitHealth(unit), UnitHealthMax(unit)
-            TextStatusBar_UpdateTextStringWithValues(self, textString, value, 0, max)
+            TextStatusBar.UpdateTextStringWithValues(self, textString, value, 0, max)
         else
-            TextStatusBar_UpdateTextString(self)
+            TextStatusBar.UpdateTextString(self)
         end
     end
   
