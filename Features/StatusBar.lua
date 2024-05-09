@@ -38,7 +38,7 @@ GameTooltipStatusBar:HookScript("OnValueChanged", function(self, value)
             value, max = UnitHealth(unit), UnitHealthMax(unit)
             TextStatusBar.UpdateTextStringWithValues(self, textString, value, 0, max)
         else
-            TextStatusBar.UpdateTextString(self)
+            TextStatusBar.UpdateTextStringWithValues(self, textString, value, 0, max)
         end
     end
   
