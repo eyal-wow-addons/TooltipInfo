@@ -1,3 +1,6 @@
+local GetMouseFoci = GetMouseFoci
+local WorldFrame = WorldFrame
+
 local function SetPoint(tooltip, dir)
     dir = dir or "BOTTOMRIGHT"
     local scale = tooltip:GetEffectiveScale()
@@ -34,26 +37,27 @@ local function SetPoint(tooltip, dir)
     tooltip:SetPoint("BOTTOMLEFT", UIParent, x, y)
 end
 
-local onUpdateSet
-local function OnUpdate(tooltip)
-    if TooltipInfoDB["AnchorMode"] ~= 2 then
-        return
-    end
-    if GetMouseFocus() == WorldFrame and tooltip:GetAnchorType() == "ANCHOR_CURSOR" then
-        SetPoint(tooltip)
+local tooltipOwner
+local function SetOnUpdateHandler(tooltip)
+    if tooltip ~= tooltipOwner then
+        tooltipOwner = tooltip
+        local onUpdateHandler = function()
+            if GetMouseFoci()[1] == WorldFrame then
+                SetPoint(tooltip)
+            end
+        end
+        tooltip:HookScript("OnUpdate", onUpdateHandler)
     end
 end
 
 hooksecurefunc("GameTooltip_SetDefaultAnchor", function(tooltip, parent)
-    local frame = GetMouseFocus()
+    local frame = GetMouseFoci()[1]
 
     if frame == WorldFrame then
         if TooltipInfoDB["AnchorMode"] == 2 then
             tooltip:SetOwner(parent, "ANCHOR_CURSOR")
-            if not onUpdateSet then
-                tooltip:HookScript("OnUpdate", OnUpdate)
-                onUpdateSet = true
-            end
+            tooltip:SetOwner(parent, "ANCHOR_NONE")
+            SetOnUpdateHandler(tooltip)
         end
         return
     end
@@ -67,6 +71,4 @@ hooksecurefunc("GameTooltip_SetDefaultAnchor", function(tooltip, parent)
         tooltip:SetOwner(MainStatusTrackingBarContainer.bars[4], "ANCHOR_CURSOR")
         return
     end
-
-    tooltip:SetOwner(parent, "ANCHOR_NONE")
 end)

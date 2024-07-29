@@ -11,6 +11,7 @@ frame:SetScript("OnEvent", function(self)
     SlashCmdList["TOOLTIPINFO"] = function(input)
         if input == "anchor normal" then
             TooltipInfoDB["AnchorMode"] = 1
+            ReloadUI()
         elseif input == "anchor dynamic" then
             TooltipInfoDB["AnchorMode"] = 2
         end

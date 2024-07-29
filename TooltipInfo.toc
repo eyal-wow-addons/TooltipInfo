@@ -1,4 +1,4 @@
-## Interface: 100207
+## Interface: 110000
 
 ## Title: Tooltip|cff40a5f7Info|r
 ## Notes: Enhances the standard tooltip with additional information and visuals.
